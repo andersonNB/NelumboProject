@@ -1,30 +1,44 @@
-import { Carousel } from 'antd';
-import iconUser from '../../assets/iconUser.svg';
+import { Avatar, List } from 'antd';
+import styled from 'styled-components';
 
-const contentStyle = {
-	margin: 0,
-	height: '100%',
-	color: '#fff',
-	lineHeight: '160px',
-	textAlign: 'center',
-	background: '#364d79',
-};
-const CarouselComponent = () => (
-	<>
-		<Carousel arrows dotPosition='left' infinite={false} style={{ width: '100%', height: '100%' }}>
-			<div>
-				<img style={contentStyle} src={iconUser} alt='logo default' width={100} height={100} />
-			</div>
-			<div>
-				<img style={contentStyle} src={iconUser} alt='logo default' width={100} height={100} />
-			</div>
-			<div>
-				<img style={contentStyle} src={iconUser} alt='logo default' width={100} height={100} />
-			</div>
-			<div>
-				<img style={contentStyle} src={iconUser} alt='logo default' width={100} height={100} />
-			</div>
-		</Carousel>
-	</>
+const data = Array.from({
+	length: 4,
+}).map((_, i) => ({
+	avatar: 'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png',
+}));
+
+const Container = styled(List)`
+	.ant-list-items {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.ant-avatar {
+		width: 127px;
+		height: 127px;
+		overflow: inherit;
+	}
+	.ant-list-item-meta {
+		margin-block-end: 0 !important;
+	}
+
+	.ant-list-item {
+		padding: 5px 24px;
+	}
+`;
+const CarouselCustom = () => (
+	<Container
+		itemLayout='vertical'
+		size='large'
+		dataSource={data}
+		renderItem={(item) => (
+			<List.Item key={item.title}>
+				<List.Item.Meta avatar={<Avatar src={item.avatar} />} />
+				{item.content}
+			</List.Item>
+		)}
+	/>
 );
-export default CarouselComponent;
+export default CarouselCustom;

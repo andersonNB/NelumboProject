@@ -4,7 +4,7 @@ import { setInfoUser } from "./userSlice";
 export const tgetUserInfo = () => async (dispatch) => {
 	try {
 		const res =  await getInfoUsers();
-		console.log(res)
+		// console.log(res)
         dispatch(setInfoUser(res));
         return res
 		

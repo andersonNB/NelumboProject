@@ -1,16 +1,15 @@
 import { Button, Col, Row } from 'antd';
-import logo from '../../assets/logo.svg';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 export const itemsMenu = [
-	{
-		key: '1',
-		label: (
-			<Row style={{ backgroundColor: 'greenyellow', width: '100%' }}>
-				<Col span={12}></Col>
-			</Row>
-		),
-	},
+	// {
+	// 	key: '1',
+	// 	label: (
+	// 		<Row style={{ backgroundColor: 'greenyellow', width: '100%' }}>
+	// 			<Col span={12}></Col>
+	// 		</Row>
+	// 	),
+	// },
 	{
 		key: '2',
 		label: (

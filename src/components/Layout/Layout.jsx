@@ -1,9 +1,10 @@
-import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Col, Layout, Menu, Row, theme } from 'antd';
+import { Checkbox, Col, Layout, Menu, Rate, Row, theme } from 'antd';
 import ContentHome from '../ContentHome/ContentHome';
 
 const { Content, Sider } = Layout;
+
+const arrayChecks = ['Apple', 'Samsung', 'Huawei', 'Xiaomi', 'OPPp', 'Sony', 'OnePlus'];
 
 const itemsSubMenu = [
 	{
@@ -30,33 +31,37 @@ const itemsSubMenu = [
 ];
 
 const items2 = [
-	{ text: <h4 style={{ color: '#0149BE' }}>Marcas</h4>, icon: UserOutlined },
+	{
+		text: <h4 style={{ color: '#0149BE' }}>Marcas</h4>,
+		icon: UserOutlined,
+		children: [{ key: '1', label: <Checkbox.Group options={arrayChecks} defaultValue={['Apple']} /> }],
+	},
 	{ text: <h4 style={{ color: '#0149BE' }}>Precio</h4>, icon: LaptopOutlined },
-	{ text: <h4 style={{ color: '#0149BE' }}>Reviews</h4>, icon: NotificationOutlined },
+	{
+		text: <h4 style={{ color: '#0149BE' }}>Reviews</h4>,
+		icon: NotificationOutlined,
+		children: [{ key: 2, label: <Rate allowHalf defaultValue={2.5} /> }],
+	},
 	{ text: <h4 style={{ color: '#0149BE' }}>Memoria</h4>, icon: NotificationOutlined },
 	{ text: <h4 style={{ color: '#0149BE' }}>Rango</h4>, icon: NotificationOutlined },
 	{ text: <h4 style={{ color: '#0149BE' }}>Cámara</h4>, icon: NotificationOutlined },
-].map((element, index) => {
+].map(({ text, icon, children }, index) => {
+	const key = String(index + 1);
 	return {
-		key: index + 1,
-		icon: React.createElement(element.icon),
-		label: element.text,
-		// children: new Array(4).fill(null).map((_, j) => {
-		// 	const subKey = index * 4 + j + 1;
-		// 	return {
-		// 		key: subKey,
-		// 		label: `option${subKey}`,
-		// 	};
-		// }),
+		key: `sub${key}`,
+		// icon: React.createElement(icon),
+		label: text,
+		children: children,
 	};
 });
+
 const LayoutComponent = () => {
 	const {
 		token: { colorBgContainer, borderRadiusLG },
 	} = theme.useToken();
 	return (
 		<Layout style={{ minHeight: '100vh' }}>
-			<Row style={{ padding: 10, marginBottom: 4, backgroundColor:'white', boxShadow: '6px 0px 8px #ccc', }}>
+			<Row style={{ padding: 10, marginBottom: 4, backgroundColor: 'white', boxShadow: '6px 0px 8px #ccc' }}>
 				{itemsSubMenu.map((item, index) => (
 					<Col span={2} key={index}>
 						{item.text}
