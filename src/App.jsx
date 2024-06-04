@@ -1,7 +1,6 @@
 import { RouterProvider } from 'react-router-dom';
 import router from './routes/routes';
 import Navbar from './components/Navbar/Navbar';
-import { itemsMenu } from './constants/constants';
 import styled from 'styled-components';
 
 const Circle = styled.div`
@@ -29,7 +28,7 @@ const Circle = styled.div`
 function App() {
 	return (
 		<>
-			<Navbar itemsMenu={itemsMenu} />
+			<Navbar />
 			<RouterProvider router={router} />
 			<Circle>
 				<h3>COMPRA A</h3>

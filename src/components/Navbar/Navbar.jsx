@@ -15,7 +15,7 @@ const Image = styled.img`
 	padding: 0; 
 	margin: 0; 
 `;
-const Navbar = ({ itemsMenu }) => {
+const Navbar = () => {
 	return (
 		<Header
 			style={{
@@ -54,19 +54,6 @@ const Navbar = ({ itemsMenu }) => {
 					</Button>
 				</Col>
 			</Row>
-
-			{/* <Menu
-				mode='horizontal'
-				defaultSelectedKeys={['2']}
-				items={itemsMenu}
-				style={{
-					flex: 1,
-					minWidth: 0,
-					backgroundColor: '#0149BE',
-					color: 'yellow',
-					justifyContent: 'space-between',
-				}}
-			/> */}
 		</Header>
 	);
 };
