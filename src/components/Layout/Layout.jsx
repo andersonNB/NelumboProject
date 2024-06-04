@@ -32,20 +32,21 @@ const itemsSubMenu = [
 
 const items2 = [
 	{
+		key: 1,
 		text: <h4 style={{ color: '#0149BE' }}>Marcas</h4>,
 		icon: UserOutlined,
-		children: [{ key: '1', label: <Checkbox.Group options={arrayChecks} defaultValue={['Apple']} /> }],
+		children: [{ key: 2, label: <Checkbox.Group options={arrayChecks} defaultValue={['Apple']} /> }],
 	},
 	{ text: <h4 style={{ color: '#0149BE' }}>Precio</h4>, icon: LaptopOutlined },
 	{
 		text: <h4 style={{ color: '#0149BE' }}>Reviews</h4>,
 		icon: NotificationOutlined,
-		children: [{ key: 2, label: <Rate allowHalf defaultValue={2.5} /> }],
+		children: [{ key: 3, label: <Rate allowHalf defaultValue={2.5} /> }],
 	},
 	{ text: <h4 style={{ color: '#0149BE' }}>Memoria</h4>, icon: NotificationOutlined },
 	{ text: <h4 style={{ color: '#0149BE' }}>Rango</h4>, icon: NotificationOutlined },
 	{ text: <h4 style={{ color: '#0149BE' }}>Cámara</h4>, icon: NotificationOutlined },
-].map(({ text, icon, children }, index) => {
+].map(({ text, children }, index) => {
 	const key = String(index + 1);
 	return {
 		key: `sub${key}`,
@@ -77,13 +78,14 @@ const LayoutComponent = () => {
 				>
 					<Menu
 						mode='inline'
-						defaultSelectedKeys={['1']}
-						defaultOpenKeys={['sub1']}
+						defaultSelectedKeys={['sub1']}
+						defaultOpenKeys={['sub1','sub2','sub3','sub4','sub5','sub6']}
 						style={{
 							height: '100%',
 							borderRight: 0,
 						}}
 						items={items2}
+						expandIcon={null}
 					/>
 				</Sider>
 				<Layout>
